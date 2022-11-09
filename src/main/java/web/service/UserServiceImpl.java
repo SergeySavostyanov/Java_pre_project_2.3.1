@@ -1,9 +1,7 @@
-package jm.task.core.jdbc.service;
-
-import jm.task.core.jdbc.dao.UserDao;
-import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
-import jm.task.core.jdbc.model.User;
+package web.service;
+import web.dao.UserDao;
+import web.dao.UserDaoHibernateImpl;
+import web.model.User;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
-package jm.task.core.jdbc.service;
-
-import jm.task.core.jdbc.model.User;
+package web.service;
+import web.model.User;
 
 import java.util.List;
 

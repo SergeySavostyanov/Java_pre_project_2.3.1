@@ -16,7 +16,6 @@ public class ma {
         impl.removeUserById(3);
 
         impl.getAllUsers().stream().forEach(user -> System.out.println(user.toString()));
-        impl.cleanUsersTable();
-        impl.dropUsersTable();
+
     }
 }
