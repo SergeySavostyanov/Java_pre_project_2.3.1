@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Repository
-public class UserDaoHibernateImpl implements UserDao {
+public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -47,3 +47,4 @@ public class UserDaoHibernateImpl implements UserDao {
         entityManager.merge(user);
     }
 }
+

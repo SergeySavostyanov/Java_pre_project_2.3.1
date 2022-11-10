@@ -1,16 +1,15 @@
 package web.model;
 
 
-
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-@Setter
+
 @Getter
+@Setter
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
 
@@ -36,6 +35,5 @@ public class User {
         this.secondName = secondName;
         this.age = age;
     }
-
-
 }
+

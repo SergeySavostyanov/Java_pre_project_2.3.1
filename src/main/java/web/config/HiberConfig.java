@@ -16,7 +16,7 @@ import java.util.Properties;
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
-public class DBConfig {
+public class HiberConfig {
 
     @Bean
     DriverManagerDataSource dataSource() {
