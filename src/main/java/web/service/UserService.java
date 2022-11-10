@@ -4,15 +4,15 @@ import web.model.User;
 import java.util.List;
 
 public interface UserService {
-    void createUsersTable();
 
-    void dropUsersTable();
+    User getById(int id);
 
-    void saveUser(String name, String lastName, byte age);
+    List<User> listUsers();
 
-    void removeUserById(long id);
+    void saveUser(User user);
 
-    List<User> getAllUsers();
+    void removeUser(int id);
 
-    void cleanUsersTable();
+    void updateUser(User user);
+
 }

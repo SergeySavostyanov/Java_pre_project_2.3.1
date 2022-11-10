@@ -1,24 +1,40 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="UTF-8" />
+    <title>List of users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Cars List</h1>
+<h1>User list</h1>
 
+<div>
+    <nobr>
+        <a th:href="@{/add}">Add user</a> |
+        <a th:href="@{/}">Back to home page</a>
+    </nobr>
+</div>
+<br/><br/>
 <div>
     <table border="1">
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Last name</th>
-            <th>age</th>
-
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Age</th>
+            <th>Change</th>
+            <th>Delete</th>
         </tr>
-
+        <tr th:each ="user : ${listUsers}">
+            <td th:utext="${user.getId()}">...</td>
+            <td th:utext="${user.getName()}">...</td>
+            <td th:utext="${user.getSecondName()}">...</td>
+            <td th:utext="${user.age}">...</td>
+            <td><a th:href="@{/user-update/{id}(id=${user.getId()})}">Change</a></td>
+            <td><a th:href="@{/delete(id=${user.getId()})}">Delete</a></td>
+        </tr>
     </table>
 </div>
+
 </body>
 </html>

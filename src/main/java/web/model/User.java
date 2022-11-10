@@ -1,45 +1,41 @@
 package web.model;
 
+
+
+
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-
-@Entity
-@Getter
 @Setter
+@Getter
+@Entity
 @Table(name = "users")
 public class User {
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "second_name")
+    private String secondName;
 
     @Column(name = "age")
-    private byte age;
+    int age;
 
-    public User(String name, String lastName, byte age) {
+    public User() {
+    }
+
+    public User(String name, String secondName, int age) {
         this.name = name;
-        this.lastName = lastName;
+        this.secondName = secondName;
         this.age = age;
     }
 
-    public User() {
 
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }

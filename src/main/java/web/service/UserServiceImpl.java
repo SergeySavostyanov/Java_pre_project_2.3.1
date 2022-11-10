@@ -1,49 +1,38 @@
 package web.service;
+
+import org.springframework.stereotype.Service;
 import web.dao.UserDao;
-import web.dao.UserDaoHibernateImpl;
 import web.model.User;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
-    UserDao userDao = new UserDaoHibernateImpl();
-    public void createUsersTable() {
 
-        userDao.createUsersTable();
-        System.out.println("Таблица users создана в БД");
+    private final UserDao dao;
+
+    public UserServiceImpl(UserDao dao) {
+        this.dao = dao;
     }
 
-    public void dropUsersTable() {
-
-        userDao.dropUsersTable();
-        System.out.println("Таблица users удалена из БД");
-
+    @Override
+    public User getById(int id) {
+        return dao.getById(id);
     }
 
-    public void saveUser(String name, String lastName, byte age) {
-
-        userDao.saveUser(name,lastName,age);
-        System.out.printf("Пользователь %s %s %d добавлен в таблицу users\n",name,lastName,age);
+    public List<User> listUsers() {
+        return dao.listUsers();
     }
 
-    public void removeUserById(long id) {
-
-        userDao.removeUserById(id);
-        System.out.printf("Пользователь с id = %s удален \n",id);
-
+    public void saveUser(User user) {
+        dao.saveUser(user);
     }
 
-    public List<User> getAllUsers() {
-
-        System.out.println("Создан список");
-        return userDao.getAllUsers();
-
+    public void removeUser(int id) {
+        dao.removeUser(id);
     }
 
-    public void cleanUsersTable() {
-
-        userDao.cleanUsersTable();
-        System.out.println("Таблица users очищена");
-
+    public void updateUser(User user) {
+        dao.updateUser(user);
     }
 }
